@@ -1,0 +1,77 @@
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Oswald:300,400);
+.container-fluid{
+  height: auto;
+}
+.header{
+  background-image: url(slideshow/slide1.jpg);
+  background-size: 50% 300px;
+  background-repeat:repeat-x;
+  height: 300px;
+  color: red;
+  text-indent: center;
+}
+.body{
+
+}
+.info{
+margin: 10px;
+color: blue;
+background-image: url(slideshow/slide2.jpg);
+
+}
+
+.images{
+  display: inline-block;
+
+}
+img{
+  margin: 10px;
+  border-style:ridge;
+  display: inline-block;
+}
+.heel1{
+  margin: 10px;
+  float:left;
+  border-style: outset;
+}
+.heel2{
+  margin: 10px;
+  display: inline-block;
+  border-style: outset;
+}
+.heel3{
+  margin: 10px;
+  display:inline-block;
+  border-style: outset;
+}
+.images i {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+  width : 56px;
+  line-height: 56px;
+  text-align: center;
+  border-radius: 50px;
+  color: white;
+  background-color: blue;
+  border:0.5px solid white;
+  radius:25px;
+  }
+.images a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.images .price{
+  display: inline-block;
+
+}
+h6{
+  color:red;
+}

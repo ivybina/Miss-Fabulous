@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="styles.css" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="fun.js"></script>
+    <title>Miss Fabulous</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+                <div class="row header">
+                  <strong><h1>Miss Fabulous</h1></strong>
+                </div>
+      <div class="row body">
+        <div class="row col-lg-3 info ">
+          <form class="you" action="index.html" method="post">
+           <p><strong>Full name:</strong>
+           <input type="Name" name="Name" value="" id="name"></p>
+           <p><strong>Tel:</strong>
+           <input type="tel" name="" value="" id="tel"></p>
+           <input type="submit" name="submit" value="submit">
+          </form>
+          <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+          </button>
+        </div>
+        <div class="row col-lg-9 images">
+          <div class="col-lg-3 heel1">
+            <img src="shoes/heel1.jpg" alt="heel1" style="width:150px; height:150px;">
+            <h6 >black ruby</h6>
+            <figcaption><div class="price">1400/=</div>
+            </figcaption><i class="ion-android-cart"></i><a href="#"></a>
+          </div>
+          <div class=" col-lg-3 heel2">
+            <img src="shoes/heel2.jpg" alt="heel2" style="width:150px; height:150px;">
+            <h6 >heels</h6>
+            <figcaption><div class="price">1200/=</div>
+            </figcaption><i class="ion-android-cart"></i><a href="#"></a>
+          </div>
+          <div class="col-lg-3 heel3">
+            <img src="shoes/heel3.jpg" alt="heel3" style="width:150px; height:150px;">
+            <h6 >flower ruby</h6>
+            <figcaption><div class="price">1300/=</div>
+            </figcaption><i class="ion-android-cart"> </i><a href="#"></a>
+          </div>
+          <!-- <img src="shoes/boot1.jpg" alt="boot1" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/boot2.jpg" alt="boot2" style="width:150px; height:150px;"><i class="ion-android-cart"></i> -->
+          <!-- <img src="shoes/boot3.jpg" alt="boot3" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/boot4.jpg" alt="boot4" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/boot5.jpg" alt="boot5" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/wedge1.jpg" alt="wedge1" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/wedge2.jpg" alt="wedge2" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/flat1.jpg" alt="flat1" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
+          <img src="shoes/flat2.jpg" alt="flat2" style="width:150px; height:150px;"><i class="ion-android-cart"></i> -->
+
+        </div>
+
+      </div>
+      <div class="row receipt" id="receipt">
+        <p>Name: <span id="name"></span></br>Tel:<span id="tel"></span> </p>
+
+      </div>
+
+    </div>
+  </body>
+</html>
