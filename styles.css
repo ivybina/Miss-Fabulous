@@ -13,6 +13,8 @@
   color: red;
   text-indent: center;
   padding: 100px;
+  margin-left: -10px;
+
 }
 .header h1{
 
@@ -23,8 +25,8 @@
   border: 0;
   background: #FFDBE0;
   transition: all .1s ease-out;
-  height: 40px;
-  width: 70px;
+  height: 50px;
+  width: 100px;
   float: right;
   margin-right: 20px;
 }
@@ -71,7 +73,6 @@ background-image: url(slideshow/slide2.jpg);
 }
 .cart > div div {
   text-align: center;
-  background-color: pink;
   color: black;
 }
 .cart ul, .cart li, .cart p {
@@ -142,7 +143,7 @@ img{
 .checkout {
   background:pink;
   box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
-  margin-top: 90px;
+  /*margin-top: 90px;*/
   padding: 50px 60px;
   color: black;
 }
@@ -174,6 +175,9 @@ img{
     top: -70px;
     left: 0px;
   }
+}
+#yourinfo{
+  display: flex;
 }
 
 h6{

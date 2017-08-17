@@ -1,31 +1,42 @@
-const shop = [
+// $(document).ready(function){
+//   $("#you").submit(function){
+//     $("name").append("");
+//     $("tel").append("");
+//
+//     $("#yourinfo").show();
+//
+//     event.preventDefault();
+//   };
+// };
+
+
+var shop = [
   {
-  name: "Black Ruby, Vol. 5",
+    name: "Black Ruby,",
     price: 1400,
     quantity: 0
   },
   {
-    name: "Heels '66, Vol. 5",
+    name: "Heels",
     price: 1200,
     quantity: 0
   },
   {
-    name: "Flower Ruby, Vol. 1",
+    name: "Flower Ruby",
     price: 1400,
     quantity: 0
   },
-];  
+];
 
-  const app = new Vue({
+  var app = new Vue({
   el: "#app",
   data: {
-    message:'hello there',
     items: [],
     shop: shop,
     showCart: false,
     verified: false,
   },
-]
+
   computed: {
     total() {
       var total = 0;

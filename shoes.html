@@ -15,7 +15,7 @@
   <body>
 
     <div class="container-fluid " id="app">
-        <h2>{{message}}</h2>
+
         <div class="header">
           <strong><h1>Miss Fabulous</h1></strong>
 
@@ -37,14 +37,15 @@
       <p>Your cart is empty!</p>
     </div>
   </div>
+
       <div class="row body">
         <div class="row col-lg-3 info ">
-          <form class="you" action="index.html" method="post">
+          <form v-on:submit.prevent="onSubmit"class="you" action="index.html" method="post" id="you">
            <p><strong>Full name:</strong>
-           <input type="Name" name="Name" value="" id="name"></p>
+           <input v-model="message" type="text" name="Name" value="" id="name"></p>
            <p><strong>Tel:</strong>
-           <input type="tel" name="" value="" id="tel"></p>
-           <button v-on:click="" class="btn" >Submit</button>
+           <input v-model="tel" type="text" name="" value="" id="tel"></p>
+           <button class="btn" type="submit" >Submit</button>
           </form>
           <!-- <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
@@ -57,7 +58,7 @@
              <p>ksh{{item.price}}</p>
              <i @click="addToCart(item)" class="ion-android-cart"></i>
           </div>
-          <div class=" col-lg-3 heel2" v-for="item in shop">
+          <!-- <div class=" col-lg-3 heel2" v-for="item in shop">
             <img src="shoes/heel2.jpg" alt="heel2" style="width:150px; height:150px;">
             <h6 >{{item.name}}</h6>
             <p>ksh{{item.price}}</p>
@@ -68,7 +69,7 @@
             <h6 >{{item.name}}</h6>
             <p>ksh{{item.price}}</p>
             <i @click="addToCart(item)" class="ion-android-cart"> </i>
-          </div>
+          </div> -->
           <!-- <img src="shoes/boot1.jpg" alt="boot1" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
           <img src="shoes/boot2.jpg" alt="boot2" style="width:150px; height:150px;"><i class="ion-android-cart"></i> -->
           <!-- <img src="shoes/boot3.jpg" alt="boot3" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
@@ -89,22 +90,21 @@
       <div class="row">
         <div class="u-pull-right">
           <h5>Total: <span>{{ total | currency }}</span></h5>
-          <button>Looks Good</button>
+          <button>Lovely</button>
         </div>
       </div>
-        <p>Name: <span id="name"></span></br>Tel:<span id="tel"></span> </p>
-
+        <p id="yourinfo">Name:{{message}}</br>
+          Tel:{{tel}} </p>
 
 
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> --> -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js'></script>
 
-  <script src="https://unpkg.com/vue@2.4.2"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+   <script src="https://unpkg.com/vue@2.4.2"></script>
+
   <script src="fun.js"></script>
 
   </body>
