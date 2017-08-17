@@ -1,45 +1,48 @@
-// // var slideIndex = 0;
-// // showSlides();
-// //
-// // function showSlides() {
-// //     var i;
-// //     var slides = document.getElementsByClassName("mySlides");
-// //     var dots = document.getElementsByClassName("dot");
-// //     for (i = 0; i < slides.length; i++) {
-// //        slides[i].style.display = "none";
-// //     }
-// //     slideIndex++;
-// //     if (slideIndex> slides.length) {slideIndex = 1}
-// //     for (i = 0; i < dots.length; i++) {
-// //         dots[i].className = dots[i].className.replace(" active", "");
-// //     }
-// //     slides[slideIndex-1].style.display = "block";
-// //     dots[slideIndex-1].className += " active";
-// //     setTimeout(showSlides, 2000); // Change image every 2 seconds
-// // }
-// var slideIndex = 1;
-// showSlides(slideIndex);
-//
-// function plusSlides(n) {
-//   showSlides(slideIndex += n);
-// }
-//
-// function currentSlide(n) {
-//   showSlides(slideIndex = n);
-// }
-//
-// function showSlides(n) {
-//   var i;
-//   var slides = document.getElementsByClassName("mySlides");
-//   var dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) {slideIndex = 1}
-//   if (n < 1) {slideIndex = slides.length}
-//   for (i = 0; i < slides.length; i++) {
-//       slides[i].style.display = "none";
-//   }
-//   for (i = 0; i < dots.length; i++) {
-//       dots[i].className = dots[i].className.replace(" active", "");
-//   }
-//   slides[slideIndex-1].style.display = "block";
-//   dots[slideIndex-1].className += " active";
-// }
+const shop = [
+  {
+  name: "Black Ruby, Vol. 5",
+    price: 1400,
+    quantity: 0
+  },
+  {
+    name: "Heels '66, Vol. 5",
+    price: 1200,
+    quantity: 0
+  },
+  {
+    name: "Flower Ruby, Vol. 1",
+    price: 1400,
+    quantity: 0
+  },
+];  
+
+  const app = new Vue({
+  el: "#app",
+  data: {
+    message:'hello there',
+    items: [],
+    shop: shop,
+    showCart: false,
+    verified: false,
+  },
+]
+  computed: {
+    total() {
+      var total = 0;
+      for(var i = 0; i < this.items.length; i++) {
+        total += this.items[i].price;
+      }
+      return total;
+    }
+  },
+  methods: {
+    addToCart(item) {
+      item.quantity += 1;
+      this.items.push(item);
+    },
+    removeFromCart(item) {
+      item.quantity -= 1;
+      this.items.splice(this.items.indexOf(item), 1);
+    }
+  }
+});

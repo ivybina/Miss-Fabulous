@@ -4,19 +4,39 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Rock+Salt' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
+     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="fun.js"></script>
+
     <title>Miss Fabulous</title>
   </head>
+
   <body>
-    <div class="container-fluid">
-                <div class="row header">
-                  <strong><h1>Miss Fabulous</h1></strong>
-                </div>
+
+    <div class="container-fluid " id="app">
+        <h2>{{message}}</h2>
+        <div class="header">
+          <strong><h1>Miss Fabulous</h1></strong>
+
+            <button v-on:click="showCart = !showCart" v-show="!verified">
+             {{ items.length + (items.length > 1 || items.length === 0 ? " items" : " item") }}
+           </button>
+
+      </div>
+      <div class="cart" v-show="showCart">
+    <div v-show="items.length > 0">
+      <ul>
+        <li v-for="item in items" transition="fade">
+          <p><strong>{{ item.quantity }}</strong> - {{ item.name }} <i class="fa fa-trash" @click="removeFromCart(item)"></i></p>
+        </li>
+      </ul>
+      <div><button v-on:click="verified = true, showCart = false">Check out</button></div>
+    </div>
+    <div v-show="items.length === 0">
+      <p>Your cart is empty!</p>
+    </div>
+  </div>
       <div class="row body">
         <div class="row col-lg-3 info ">
           <form class="you" action="index.html" method="post">
@@ -24,30 +44,30 @@
            <input type="Name" name="Name" value="" id="name"></p>
            <p><strong>Tel:</strong>
            <input type="tel" name="" value="" id="tel"></p>
-           <input type="submit" name="submit" value="submit">
+           <button v-on:click="" class="btn" >Submit</button>
           </form>
-          <button type="button" class="btn btn-default btn-sm">
+          <!-- <button type="button" class="btn btn-default btn-sm">
           <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
-          </button>
+          </button> -->
         </div>
-        <div class="row col-lg-9 images">
-          <div class="col-lg-3 heel1">
+        <div class="row col-lg-9 shop" v-show="!verified">
+          <div class="col-lg-3 heel1" v-for="item in shop">
             <img src="shoes/heel1.jpg" alt="heel1" style="width:150px; height:150px;">
-            <h6 >black ruby</h6>
-            <figcaption><div class="price">1400/=</div>
-            </figcaption><i class="ion-android-cart"></i><a href="#"></a>
+             <h6 >{{item.name}}</h6>
+             <p>ksh{{item.price}}</p>
+             <i @click="addToCart(item)" class="ion-android-cart"></i>
           </div>
-          <div class=" col-lg-3 heel2">
+          <div class=" col-lg-3 heel2" v-for="item in shop">
             <img src="shoes/heel2.jpg" alt="heel2" style="width:150px; height:150px;">
-            <h6 >heels</h6>
-            <figcaption><div class="price">1200/=</div>
-            </figcaption><i class="ion-android-cart"></i><a href="#"></a>
+            <h6 >{{item.name}}</h6>
+            <p>ksh{{item.price}}</p>
+            <i @click="addToCart(item)" class="ion-android-cart"></i>
           </div>
-          <div class="col-lg-3 heel3">
+          <div class="col-lg-3 heel3" v-for="item in shop">
             <img src="shoes/heel3.jpg" alt="heel3" style="width:150px; height:150px;">
-            <h6 >flower ruby</h6>
-            <figcaption><div class="price">1300/=</div>
-            </figcaption><i class="ion-android-cart"> </i><a href="#"></a>
+            <h6 >{{item.name}}</h6>
+            <p>ksh{{item.price}}</p>
+            <i @click="addToCart(item)" class="ion-android-cart"> </i>
           </div>
           <!-- <img src="shoes/boot1.jpg" alt="boot1" style="width:150px; height:150px;"><i class="ion-android-cart"></i>
           <img src="shoes/boot2.jpg" alt="boot2" style="width:150px; height:150px;"><i class="ion-android-cart"></i> -->
@@ -62,11 +82,30 @@
         </div>
 
       </div>
-      <div class="row receipt" id="receipt">
+      <div class="checkout" v-show="verified">
+      <h3>Your Cart</h3>
+      <h5 v-for="item in items"><strong>{{ item.quantity }}</strong> - {{ item.name }}<span>ksh{{ item.price * item.quantity }}</span></h5>
+      <hr />
+      <div class="row">
+        <div class="u-pull-right">
+          <h5>Total: <span>{{ total | currency }}</span></h5>
+          <button>Looks Good</button>
+        </div>
+      </div>
         <p>Name: <span id="name"></span></br>Tel:<span id="tel"></span> </p>
 
-      </div>
+
 
     </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script> --> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js'></script>
+
+  <script src="https://unpkg.com/vue@2.4.2"></script>
+  <script src="fun.js"></script>
+
   </body>
 </html>

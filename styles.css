@@ -3,25 +3,90 @@
 .container-fluid{
   height: auto;
 }
+
 .header{
-  background-image: url(slideshow/slide1.jpg);
+  background-image: url(slideshow/lady4.jpg);
   background-size: 50% 300px;
   background-repeat:repeat-x;
+  /*background-repeat: no-repeat;*/
   height: 300px;
   color: red;
   text-indent: center;
+  padding: 100px;
+}
+.header h1{
+
+  font-style: italic;
+  font-family:serif;
+}
+.header button {
+  border: 0;
+  background: #FFDBE0;
+  transition: all .1s ease-out;
+  height: 40px;
+  width: 70px;
+  float: right;
+  margin-right: 20px;
+}
+.header button:hover{
+  background:maroon;
 }
 .body{
 
 }
 .info{
 margin: 10px;
-color: blue;
+color: red;
 background-image: url(slideshow/slide2.jpg);
 
 }
+.info button{
+  background: grey;
+  color: black;
+  border-style: ridge;
+}
+.fa {
+  cursor: pointer;
+  margin-left: 5px;
+}
 
-.images{
+.fade-transition {
+  transition: all 0.2s ease-out;
+}
+
+.fade-enter, .fade-leave {
+  opacity: 0;
+}
+/*.cart{
+  display: none;
+}*/
+
+.cart > div {
+  z-index: 100;
+  background: #fff;
+  padding: 20px 30px;
+  position: absolute;
+  right: 30px;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+}
+.cart > div div {
+  text-align: center;
+  background-color: pink;
+  color: black;
+}
+.cart ul, .cart li, .cart p {
+  margin-bottom: 0;
+}
+.cart button {
+  margin: 20px 0 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
+.shop{
   display: inline-block;
 
 }
@@ -45,7 +110,8 @@ img{
   display:inline-block;
   border-style: outset;
 }
-.images i {
+
+.shop i {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -59,8 +125,9 @@ img{
   background-color: blue;
   border:0.5px solid white;
   radius:25px;
+  transition: all .2s ease-out;
   }
-.images a {
+.shop a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -68,10 +135,47 @@ img{
   right: 0;
   z-index: 1;
 }
-.images .price{
-  display: inline-block;
-
+.shop i:hover {
+  background:green;
 }
+
+.checkout {
+  background:pink;
+  box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 90px;
+  padding: 50px 60px;
+  color: black;
+}
+.checkout h3 {
+  position: absolute;
+  top: -85px;
+  left: -30px;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+.checkout span {
+  float: right;
+}
+
+@media screen and (max-width: 630px) {
+  .checkout {
+    padding: 30px 40px;
+  }
+  .checkout h6 {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 550px) {
+  .shop h3, .checkout h3 {
+    font-size: 3.3em;
+    top: -70px;
+    left: 0px;
+  }
+}
+
 h6{
   color:red;
 }
