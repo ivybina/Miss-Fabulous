@@ -12,7 +12,7 @@
 
 var shop = [
   {
-    name: "Black Ruby,",
+    name: "Black Ruby",
     price: 1400,
     quantity: 0
   },
